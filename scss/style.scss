@@ -1,0 +1,88 @@
+$black: #111;
+$white: #fff;
+$bg-ck-tab: #999;
+$bg: #d4d4d4;
+
+
+@import "_normalize.scss";
+
+
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+
+.tabs{
+  position: relative;
+  width: 100%;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
+  padding: 0;
+  &__header{
+    padding: 0.5em;
+    font-size: 1em;
+    word-wrap: break-word;
+    width: 20%;
+    background: $bg;
+    border-bottom: 1px solid $bg-ck-tab;
+    border-right: 1px solid $bg-ck-tab;
+  }
+  &__value{
+    font-size: 0.8em;
+    padding: 0.5em;
+    width: 20%;
+    background: $bg;
+    border-bottom: 1px solid $bg-ck-tab;
+    border-right: 1px solid $bg-ck-tab;
+  }
+}
+
+
+.tab{
+  position: fixed;
+  display: none;
+  padding: 1em;
+  background: $white;
+  top: 0;
+  left: 20%;
+  right: 0;
+  bottom: 0;
+}
+
+
+.button-true{
+  display: none;
+  &:checked + label{
+    background: $white;
+  }
+}
+
+
+.button-false{
+  display: block;
+  width: 20%;
+  height: auto;
+  padding: 0.7em;
+  color: $black;
+  font-weight: 400;
+  font-size: 0.6em;
+  background: $bg;
+  border-bottom: 1px solid $bg-ck-tab;
+  border-right: 1px solid $bg-ck-tab;
+  cursor: pointer;
+}
+
+
+@for $i from 1 through 21 {
+  #tab#{$i}:checked ~ .tab.content#{$i}{
+    display: block;
+  }
+}
+
